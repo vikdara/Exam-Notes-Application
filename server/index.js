@@ -1,6 +1,10 @@
 import express from "express"
 import dotenv from "dotenv"
 import connectDB from "./utils/connectDB.js";
+import dns from "dns";  // this help to resolve the dns issue 
+
+
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 
 dotenv.config(); 
 
