@@ -8,10 +8,10 @@ import axios from 'axios';
 import { serverUrl } from '../App';
 
 function Auth() {
-
   const handleGoogleAuth = async () => {
     try {
      const response = await signInWithPopup(auth, provider)
+     console.log(response);
      const User = response.user;
      const name = User.displayName;
      const email = User.email;
