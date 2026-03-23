@@ -13,18 +13,18 @@ dotenv.config();
 
 const app = express();
 
-app.use(
+app.use(  // telling to the backend to allow only this frontend to connect 
   cors({
     origin: "http://localhost:5173",
-    credentials: true,
+    credentials: true,      // mandatory for cookies and session 
     methods: ["GET", "POST", "PUT", "DELETE"],
   }),
 );
 
-app.use(express.json());
-app.use(cookieParser());
+app.use(express.json());  // telling to the backend to allow json
+app.use(cookieParser());  // telling to the backend to allow cookies
 
-// ✅ FIX: route ko yaha define karo (outside)
+// defining the route to handle the request on the specific path 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 
